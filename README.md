@@ -105,7 +105,7 @@ git clone https://github.com/JahanzaibJameel/landing_page.git
 #### 2. Navigate to the project directory
 
 ```bash
-cd 3legant-ecommerce-ui
+cd landing_page
 ```
 
 #### 3. Open the project
