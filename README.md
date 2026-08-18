@@ -1,4 +1,3 @@
-
 <div align="center">
   <a href="https://github.com/your-username/3legant-ecommerce-ui">
     <img src="Logo (3).png" alt="3legant Logo" width="120" height="80">
