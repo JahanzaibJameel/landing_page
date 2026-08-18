@@ -1,8 +1,3 @@
-# 3legant – Gift & Decoration Store UI
-
-<!-- PROJECT LOGO -->
-
-<br />
 
 <div align="center">
   <a href="https://github.com/your-username/3legant-ecommerce-ui">
