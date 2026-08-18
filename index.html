@@ -4,8 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>3legant - Gift & Decoration Store</title>
   <style>
+    /* Global reset for images */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .link-1 {
       font-size: 18px;
       font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -57,6 +63,27 @@
       gap: 35px;
     }
 
+    /* Mobile navigation toggle */
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-toggle-label {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-toggle-label span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
     .nav {
       display: flex;
       flex-direction: row;
@@ -65,15 +92,20 @@
       margin-left: 30px;
       margin-right: 30px;
       margin-top: 30px;
+      position: relative;
     }
 
     .slider {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: auto;
+      width: 100%;
       overflow: hidden;
       margin-top: 50px;
+    }
+
+    .slider img {
+      width: 100%;
     }
 
     .hero-text {
@@ -150,7 +182,7 @@
     .card-2 {
       display: flex;
       flex-direction: row;
-      align-items: last baseline;
+      align-items: flex-end; /* Changed from last baseline */
       background-color: #f3f5f7;
       width: 400px;
       padding-left: 20px;
@@ -185,7 +217,7 @@
     .card-3 {
       display: flex;
       flex-direction: row;
-      align-items: last baseline;
+      align-items: flex-end; /* Changed from last baseline */
       gap: 10px;
       background-color: #f3f5f7;
       width: 400px;
@@ -266,22 +298,22 @@
       height: 350px;
     }
 
-    .product-image img {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: auto;
-      margin-top: 70px;
-      padding-bottom: 90px;
-      width: 200px;
-    }
-
+    .product-image img,
     .product-image-2 img {
       display: flex;
       align-items: center;
       justify-content: center;
       margin: auto;
       margin-top: 70px;
+      width: 200px;
+      max-width: 100%;
+    }
+
+    .product-image img {
+      padding-bottom: 90px;
+    }
+
+    .product-image-2 img {
       padding-bottom: 70px;
     }
 
@@ -313,6 +345,7 @@
       overflow: hidden;
       margin-left: 0px;
       margin-top: 50px;
+      flex-wrap: wrap; /* Added to prevent overflow on mobile */
     }
 
     .arrivals {
@@ -420,6 +453,7 @@
       align-items: center;
       justify-content: start;
       margin-top: 100px;
+      background-color: #F3F5F7;
     }
 
     .articles {
@@ -469,7 +503,7 @@
 
     .news-letter {
       margin-top: 100px;
-      background-image: url(Image\ Placeholder\ \(1\).png);
+      background-image: url("Image Placeholder (1).png");
       background-position: center;
     }
 
@@ -483,7 +517,7 @@
     .sing-up {
       font-size: 15px;
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-      font-weight: 500px;
+      font-weight: 500; /* Fixed: removed 'px' */
       width: 300px;
     }
 
@@ -506,6 +540,10 @@
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
       font-weight: 500;
       color: #6c7275;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
     }
 
     .login-main {
@@ -603,11 +641,28 @@
       padding-bottom: 30px;
     }
 
-    /* media curies */
-
+    /* ===== Media Queries ===== */
     @media screen and (max-width: 768px) {
       .links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+      }
+
+      .nav-toggle-label {
+        display: flex;
+      }
+
+      .nav-toggle:checked ~ .links {
+        display: flex;
       }
 
       .nav {
@@ -813,7 +868,7 @@
       .card-2 {
         display: flex;
         flex-direction: row;
-        align-items: last baseline;
+        align-items: flex-end;
         gap: 10px;
         background-color: #f3f5f7;
         width: 250px;
@@ -845,7 +900,7 @@
       .card-3 {
         display: flex;
         flex-direction: row;
-        align-items: last baseline;
+        align-items: flex-end;
         gap: 10px;
         background-color: #f3f5f7;
         width: 250px;
@@ -879,19 +934,17 @@
         margin-top: 100px;
       }
 
-      .product-image img {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        margin-top: 70px;
-        padding-bottom: 70px;
-        width: 200px;
+      .product-image img,
+      .product-image-2 img {
+        width: 150px;
+        margin-top: 50px;
+        padding-bottom: 40px;
       }
 
       .product-1 {
         background-color: #f3f5f7;
-        width: 250px;
+        width: 220px;
+        height: 280px;
       }
 
       .sub {
@@ -1016,7 +1069,6 @@
       }
 
       .footer-up {
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1055,40 +1107,43 @@
   </style>
 </head>
 
-<body style="margin: 0px;
-  padding: 0px;">
+<body style="margin: 0px; padding: 0px;">
   <div class="nav">
     <div>
-      <img src="Logo (3).png" alt="" />
+      <img src="Logo (3).png" alt="3legant Logo" />
     </div>
+
+    <!-- Mobile navigation checkbox and hamburger -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
     <div class="links">
       <div class="link-1">
         <a href="#">Home</a>
       </div>
-
       <div class="link-2">
         <a href="#">Shop</a>
       </div>
-
       <div class="link-3">
         <a href="#">Product</a>
       </div>
-
       <div class="link-4">
         <a href="#">Contact Us</a>
       </div>
     </div>
 
     <div>
-      <img src="Icons (2).png" alt="" />
+      <img src="Icons (2).png" alt="Search and Cart icons" />
     </div>
   </div>
 
   <!-- hero-section -->
-
   <div class="slider">
-    <img src="Slider.png" alt="" />
+    <img src="Slider.png" alt="Hero Slider" />
   </div>
 
   <div class="hero-text-main">
@@ -1096,7 +1151,6 @@
       Simply Unique <span style="color: grey">/</span>
       Simply Better.
     </div>
-
     <div class="hero-des">
       <span style="color: black">3legant</span> is a gift & decorations store
       based in HCMC, Vietnam. Est since 2019.
@@ -1111,32 +1165,30 @@
         <div class="card-1-btn">Shop Now →</div>
       </div>
       <div class="card-img">
-        <img src="Paste image.png" alt="" />
+        <img src="Paste image.png" alt="Living Room furniture" />
       </div>
     </div>
 
     <div class="cards-2-main">
       <!-- card-2 -->
-
       <div class="card-2">
         <div class="card-2-t-flex">
           <div class="card-2-text">Bedroom</div>
           <div class="card-2-btn">Shop Now →</div>
         </div>
         <div class="card-2-img">
-          <img src="table-removebg-preview.png" alt="" />
+          <img src="table-removebg-preview.png" alt="Bedroom furniture" />
         </div>
       </div>
 
       <!-- card-3 -->
-
       <div class="card-3">
         <div class="card-3-t-flex">
           <div class="card-3-text">Kitchen</div>
           <div class="card-3-btn">Shop Now →</div>
         </div>
         <div class="card-3-img">
-          <img src="Paste_image1-removebg-preview.png" alt="" />
+          <img src="Paste_image1-removebg-preview.png" alt="Kitchen furniture" />
         </div>
       </div>
     </div>
@@ -1146,6 +1198,7 @@
     <div class="arrivals">New Arrivals</div>
     <div class="more">More Products→</div>
   </div>
+
   <div class="products">
     <!-- product-1 -->
     <div>
@@ -1156,29 +1209,21 @@
             <div class="product-btn-2">-50%</div>
           </div>
           <div>
-            <img src="add to ❤️ wishlist.png" alt="" />
+            <img src="add to ❤️ wishlist.png" alt="Add to wishlist" />
           </div>
         </div>
         <div class="product-image">
-          <img src="Image_Placeholder-removebg-preview.png" alt="" />
+          <img src="Image_Placeholder-removebg-preview.png" alt="Loveseat Sofa" />
         </div>
       </div>
       <div style="margin-top: 10px">
         <div>
-          <img src="Rating Group.png" alt="" />
+          <img src="Rating Group.png" alt="Rating 5 stars" />
         </div>
         <div class="sofa-text">Loveseat Sofa</div>
-        <div style="
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              gap: 10px;
-              margin-top: 5px;
-            ">
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; margin-top: 5px;">
           <div class="sofa-price">$199.00</div>
-          <div class="sofa-dis">
-            <strike>400.00</strike>
-          </div>
+          <div class="sofa-dis"><strike>400.00</strike></div>
         </div>
       </div>
     </div>
@@ -1192,25 +1237,19 @@
             <div class="product-btn-2">-50%</div>
           </div>
           <div>
-            <img src="add to ❤️ wishlist.png" alt="" />
+            <img src="add to ❤️ wishlist.png" alt="Add to wishlist" />
           </div>
         </div>
         <div class="product-image-2">
-          <img src="Paste_image-2-removebg-preview.png" alt="" />
+          <img src="Paste_image-2-removebg-preview.png" alt="Table Lamp" />
         </div>
       </div>
       <div style="margin-top: 10px">
         <div>
-          <img src="Rating Group.png" alt="" />
+          <img src="Rating Group.png" alt="Rating 5 stars" />
         </div>
         <div class="sofa-text">Table Lamp</div>
-        <div style="
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              gap: 10px;
-              margin-top: 5px;
-            ">
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; margin-top: 5px;">
           <div class="sofa-price">$24.99</div>
         </div>
       </div>
@@ -1225,25 +1264,19 @@
             <div class="product-btn-2">-50%</div>
           </div>
           <div>
-            <img src="add to ❤️ wishlist.png" alt="" />
+            <img src="add to ❤️ wishlist.png" alt="Add to wishlist" />
           </div>
         </div>
         <div class="product-image-2">
-          <img src="Paste_image-3-removebg-preview.png" alt="" />
+          <img src="Paste_image-3-removebg-preview.png" alt="Beige Table Lamp" />
         </div>
       </div>
       <div style="margin-top: 10px">
         <div>
-          <img src="Rating Group.png" alt="" />
+          <img src="Rating Group.png" alt="Rating 5 stars" />
         </div>
         <div class="sofa-text">Beige Table Lamp</div>
-        <div style="
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              gap: 10px;
-              margin-top: 5px;
-            ">
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; margin-top: 5px;">
           <div class="sofa-price">$24.99</div>
         </div>
       </div>
@@ -1258,25 +1291,19 @@
             <div class="product-btn-2">-50%</div>
           </div>
           <div>
-            <img src="add to ❤️ wishlist.png" alt="" />
+            <img src="add to ❤️ wishlist.png" alt="Add to wishlist" />
           </div>
         </div>
         <div class="product-image-2">
-          <img src="Paste_image-4-removebg-preview.png" alt="" />
+          <img src="Paste_image-4-removebg-preview.png" alt="Bamboo Basket" />
         </div>
       </div>
       <div style="margin-top: 10px">
         <div>
-          <img src="./3legant E-Commerce UI Design Template (Community).zip2" alt="" />
+          <img src="Rating Group.png" alt="Rating 5 stars" />
         </div>
         <div class="sofa-text">Bamboo basket</div>
-        <div style="
-              display: flex;
-              flex-direction: row;
-                            align-items: center;
-              gap: 10px;
-              margin-top: 5px;
-            ">
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 10px; margin-top: 5px;">
           <div class="sofa-price">$24.99</div>
         </div>
       </div>
@@ -1284,12 +1311,11 @@
   </div>
 
   <!-- about -->
-
   <div class="about-main">
     <div class="about-sub">
       <div class="about-1">
-        <div>zzz
-          <img src="fast delivery.png" alt="" />
+        <div>
+          <img src="fast delivery.png" alt="Fast delivery icon" />
         </div>
         <div class="free">Free Shipping</div>
         <div class="above">Order above $200</div>
@@ -1297,7 +1323,7 @@
 
       <div class="about-1">
         <div>
-          <img src="fast delivery-1.png" alt="" />
+          <img src="fast delivery-1.png" alt="Money-back guarantee icon" />
         </div>
         <div class="free">Money-back</div>
         <div class="above">30 days guarantee</div>
@@ -1307,7 +1333,7 @@
     <div class="about-sub">
       <div class="about-1">
         <div>
-          <img src="lock 01.png" alt="" />
+          <img src="lock 01.png" alt="Secure payment icon" />
         </div>
         <div class="free">Secure Payments</div>
         <div class="above">Secured by Stripe</div>
@@ -1315,7 +1341,7 @@
 
       <div class="about-1">
         <div>
-          <img src="call.png" alt="" />
+          <img src="call.png" alt="24/7 Support icon" />
         </div>
         <div class="free">24/7 Support</div>
         <div class="above">Phone and Email</div>
@@ -1323,14 +1349,13 @@
     </div>
   </div>
 
-  <div class="paste" style="background-color: #F3F5F7;">
+  <div class="paste">
     <div class="paste-img">
-      <img src="Paste image (1).png" alt="" />
+      <img src="Paste image (1).png" alt="Sale promotion" />
     </div>
 
     <div class="lower">
       <div class="sale">SALE UP TO 35% OFF</div>
-
       <div class="text-main">HUNDREDS of New lower prices!</div>
       <div class="itsmore">
         It’s more affordable than ever to give every room in your home a
@@ -1345,11 +1370,10 @@
     <div class="more-articles">More Articles →</div>
   </div>
 
-
-  <di class="img-main">
+  <div class="img-main">
     <div>
       <div>
-        <img src="img container.png" alt="" />
+        <img src="img container.png" alt="Home decor article" />
       </div>
       <div class="img-text">7 ways to decor your home</div>
       <div class="img-button">Read More →</div>
@@ -1357,7 +1381,7 @@
 
     <div>
       <div>
-        <img src="img container (1).png" alt="" />
+        <img src="img container (1).png" alt="Kitchen organization article" />
       </div>
       <div class="img-text">Kitchen organization</div>
       <div class="img-button">Read More →</div>
@@ -1365,65 +1389,49 @@
 
     <div>
       <div>
-        <img src="img container (2).png" alt="" />
+        <img src="img container (2).png" alt="Bedroom decor article" />
       </div>
       <div class="img-text">Decor your bedroom</div>
       <div class="img-button">Read More →</div>
     </div>
-    </div>
-  </di>
+  </div>
 
   <div class="news-letter">
     <div class="news-flex">
-      <div class="join">
-        Join Our Newsletter
-      </div>
-      <div class="sing-up">
-        Sign up for deals, new products and promotions
-      </div>
+      <div class="join">Join Our Newsletter</div>
+      <div class="sing-up">Sign up for deals, new products and promotions</div>
 
-      <div class="login-main">
+      <form class="login-main" action="#" method="post">
         <div class="contact">
           <div>
-            <img src="email.png" alt="">
+            <img src="email.png" alt="Email icon" />
           </div>
-          <div class="email">
-            Email address
-          </div>
+          <input type="email" class="email" placeholder="Email address" required>
         </div>
-        <div class="login">
-          Signup
-        </div>
-      </div>
+        <button type="submit" class="login">Signup</button>
+      </form>
     </div>
   </div>
 
   <div style="background-color: black;">
-
     <div class="footer-up">
       <div class="footer-logo">
         <div>
-          <img src="Logo.png" alt="">
+          <img src="Logo.png" alt="3legant Logo" />
         </div>
-        <div class="gift">
-          Gift & Decoration Store
-        </div>
+        <div class="gift">Gift & Decoration Store</div>
       </div>
-
 
       <div class="footer-links">
         <div class="link-1-1">
           <a href="#">Home</a>
         </div>
-
         <div class="link-2">
           <a href="#">Shop</a>
         </div>
-
         <div class="link-3">
           <a href="#">Product</a>
         </div>
-
         <div class="link-4">
           <a href="#">Contact Us</a>
         </div>
@@ -1432,21 +1440,13 @@
 
     <div class="footer-down">
       <div class="copy">
-        <div class="copy-right">
-          Copyright © 2023 3legant. All rights reserved
-        </div>
-
-        <div class="privacy">
-          Privacy Policy
-        </div>
-
-        <div class="privacy">
-          Terms of Use
-        </div>
+        <div class="copy-right">Copyright © 2023 3legant. All rights reserved</div>
+        <div class="privacy">Privacy Policy</div>
+        <div class="privacy">Terms of Use</div>
       </div>
 
       <div>
-        <img src="social icon.png" alt="">
+        <img src="social icon.png" alt="Social media icons" />
       </div>
     </div>
   </div>
