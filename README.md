@@ -99,7 +99,7 @@ You only need:
 #### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/3legant-ecommerce-ui.git
+git clone https://github.com/JahanzaibJameel/landing_page.git
 ```
 
 #### 2. Navigate to the project directory
